@@ -3,6 +3,11 @@
   <nav>
 		<i class="fas fa-film fa-2x"></i>  
     <a 
+      href="/flights" <%- title === 'All Flights' ? 'class="active"' : '' %>
+    >
+      ADD Flight
+    </a>
+    <a 
       href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>
     >
       ADD Flight

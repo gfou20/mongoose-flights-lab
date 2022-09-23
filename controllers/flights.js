@@ -1,11 +1,18 @@
 import { Flight } from "../models/flight.js"
 
+function newFlight(req, res) {
+  res.render('flights/new', {
+    title: 'Add Flight'
+  })
+}
+
+
 function index(req, res) {
   Flight.find({})
   .then(flights => {
     res.render('flights/index', {
       flights: flights,
-      title: 'ALL FLIGHTS'
+      title: 'All Flights'
     })
   })
 //   .catch(err => {
@@ -16,4 +23,5 @@ function index(req, res) {
 
 export {
   index,
+  newFlight as new
 }
