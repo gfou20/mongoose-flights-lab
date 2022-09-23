@@ -6,6 +6,18 @@ function newFlight(req, res) {
   })
 }
 
+function create(req, res) {
+  Flight.create(req.body)
+  .then(flight => {
+    console.log(flight)
+    res.redirect('/flights/new')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/flights')
+  })
+}
+
 
 function index(req, res) {
   Flight.find({})
@@ -23,5 +35,6 @@ function index(req, res) {
 
 export {
   index,
-  newFlight as new
+  newFlight as new,
+  create,
 }
