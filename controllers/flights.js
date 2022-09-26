@@ -44,24 +44,24 @@ function deleteFlight(req, res) {
   })
 }
 
-// function show(req, res) {
-//   Flight.findById(req.params.id)
-//   .then(flight => {
-//     res.render('flights/show', {
-//       title: 'Flight Details',
-//       flight: flight
-//     })
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect('/')
-//   })
-// }
+function show(req, res) {
+  Flight.findById(req.params.id)
+  .then(flight => {
+    res.render('flights/show', {
+      title: 'Flight Details',
+      flight: flight
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 
 export {
   index,
   newFlight as new,
   create,
-  deleteFlight as delete
-  // show,
+  deleteFlight as delete,
+  show,
 }
