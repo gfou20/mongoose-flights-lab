@@ -16,7 +16,7 @@
     <label for="airport">Airport</label>
     <select name="airport" id="airport-select">
       <option value="AUS">AUS</option>
-      <option value="DEN">DEN</option>
+      <option value="DEN" selected>DEN</option>
       <option value="SAN">SAN</option>
       <option value="LAX">LAX</option>
       <option value="DFW">DFW</option>
@@ -24,7 +24,7 @@
     <label for="flightNo">FlightNo:</label>
     <input type="text" name="flightNo" id="flightNo">
     <label for="departs">Departs:</label>
-    <input type="text" name="departs" id="departs-text">
+    <input type="datetime-local" name="departs" id="departs-text">
     <input type="checkbox" name="departs" id="departs-checkbox" checked>
     <button type="submit">Add Flight</button>
   </form>
