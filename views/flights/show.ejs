@@ -21,7 +21,7 @@
     action="/flights/<%= flight._id %>/tickets"
     method="POST"
   >
-    <label for="ticket-textarea">Ticket:</label>
+    <label for="seat-textarea">Seat:</label>
     <input name="seat" required pattern="[A-F][1-9]\d?">
     <label for="price">Price</label>
     <select name="price" id="price-select">
@@ -32,6 +32,29 @@
     </select>
     <button type="submit">Add Ticket</button>
   </form>
+  <% if (flight.tickets.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Seat</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.tickets.forEach(ticket => { %>
+          <tr>
+            <td><%= ticket.createdAt.toLocaleDateString() %> </td>
+            <td><%= ticket.seat %> </td>
+            <td><%= ticket.price %> </td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+  <% } else { %>
+    <h3>No Tickets Purchased</h3>
+  <% } %>
+  <%  %> 
 </main>
   
 <%- include('../partials/footer') %>
