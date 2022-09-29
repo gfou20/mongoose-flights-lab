@@ -14,6 +14,7 @@
     <div>Airport: <%= flight.airport %> </div>
     <div>FlightNo: <%= flight.flightNo %></div></div>
     <div>Departs: <%= flight.departs %></div>
+
   </section>
   <h2>Tickets</h2>
   <form
@@ -42,13 +43,20 @@
         </tr>
       </thead>
       <tbody>
+        <% let total = 0 %>
         <% flight.tickets.forEach(ticket => { %>
+          <% total += ticket.price %>
           <tr>
             <td><%= ticket.createdAt.toLocaleDateString() %> </td>
             <td><%= ticket.seat %> </td>
             <td><%= ticket.price %> </td>
           </tr>
         <% }) %> 
+        <tr>
+          <td>
+            <strong>Average Price:<%= (total / flight.tickets.length).toFixed(1) %></strong>
+          </td>
+        </tr>
       </tbody>
     </table>
   <% } else { %>
